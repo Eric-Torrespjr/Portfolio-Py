@@ -1,6 +1,12 @@
 # Automações Python — portfólio (APIs & integração)
 
-Três exemplos focados em **automação**, **APIs REST** e **integração de dados**, alinhados a perfis do tipo *Desenvolvedor Python (Automação & APIs)*.
+## Comece por aqui (mais simples)
+
+| Pasta | Descrição resumida | Documentação |
+|--------|-------------------|--------------|
+| [**`chatbot_processo_dashboard/`**](chatbot_processo_dashboard/) | **Chatbot por comandos** + **processo de pedidos** (JSON) + **dashboard** no mesmo app Streamlit. | [README](chatbot_processo_dashboard/README.md) |
+
+## Outros exemplos
 
 | Pasta | Descrição resumida | Documentação |
 |--------|-------------------|--------------|
