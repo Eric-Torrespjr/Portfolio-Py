@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio — Python · Automação & APIs</title>
+  <meta name="description" content="Projetos em Python: chatbot, integrações, APIs REST e dashboards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --surface: #16161a;
+      --border: #2a2a30;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --accent: #22c55e;
+      --accent-dim: rgba(34, 197, 94, 0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 1.25rem; }
+    header {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .brand { font-weight: 700; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; font-size: 0.95rem; }
+    .nav-links img { vertical-align: middle; }
+    .hero {
+      padding: 3rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    }
+    .avatar {
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
+    }
+    .hero .tag {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    .hero p { color: var(--muted); max-width: 38ch; }
+    @media (max-width: 600px) { .hero p { max-width: none; } }
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .scroll-hint a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .scroll-hint a:hover { color: var(--text); }
+    .scroll-hint img { width: 40px; height: auto; opacity: 0.9; }
+    section { padding-bottom: 3rem; }
+    section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem 1.35rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      border-color: #3f3f46;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon img { width: 26px; height: 26px; object-fit: contain; }
+    .card-icon.ty { background: rgba(59, 130, 246, 0.15); font-size: 1.35rem; }
+    .card-icon.api { background: rgba(168, 85, 247, 0.15); font-size: 1.35rem; }
+    .card-icon.gui { background: rgba(249, 115, 22, 0.15); font-size: 1.35rem; }
+    .card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.85rem; }
+    .card .links { font-size: 0.88rem; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    footer .wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    footer .wa img { width: 22px; height: 22px; }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <span class="brand">Portfolio-Py</span>
+    <nav class="nav-links">
+      <a href="#projetos">Projetos</a>
+      <a href="https://github.com/Eric-Torrespjr/Portfolio-Py" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <img class="avatar" src="assets/perfil.png" alt="Foto de perfil" width="132" height="132" />
+      <div>
+        <p class="tag">Python · Automação · APIs REST</p>
+        <h1>Olá, eu sou o Eric</h1>
+        <p>
+          Projetos focados em eficiência operacional: integração de dados, serviços REST e interfaces
+          para acompanhamento de processos — alinhados a perfis de desenvolvimento com automação e APIs.
+        </p>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <a href="#projetos" aria-label="Ir para projetos">
+        <span>Ver projetos</span>
+        <img src="assets/icone-seta-baixo.png" alt="" width="40" height="40" />
+      </a>
+    </div>
+
+    <section id="projetos">
+      <h2>Projetos no repositório</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon">
+              <img src="assets/icone-whatsapp.png" alt="" />
+            </div>
+            <div>
+              <h3>Chatbot + processo + dashboard</h3>
+            </div>
+          </div>
+          <p>
+            Streamlit com comandos de chat, fluxo de pedidos (JSON) e dashboard com métricas.
+            Evoca canais como WhatsApp para o conceito de atendimento automatizado.
+          </p>
+          <p class="links">
+            <a href="https://github.com/Eric-Torrespjr/Portfolio-Py/tree/main/chatbot_processo_dashboard">Código & README</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon ty" aria-hidden="true">📥</div>
+            <div>
+              <h3>Integrador de dados (API)</h3>
+            </div>
+          </div>
+          <p>
+            Consome API REST pública, normaliza registros e exporta CSV com logging para auditoria.
+          </p>
+          <p class="links">
+            <a href="https://github.com/Eric-Torrespjr/Portfolio-Py/tree/main/integrador_dados_api">Código & README</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon api" aria-hidden="true">⚡</div>
+            <div>
+              <h3>Serviço REST (FastAPI)</h3>
+            </div>
+          </div>
+          <p>
+            API com health check, CRUD de tarefas e documentação OpenAPI em <code>/docs</code>.
+          </p>
+          <p class="links">
+            <a href="https://github.com/Eric-Torrespjr/Portfolio-Py/tree/main/servico_rest">Código & README</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <div class="card-icon gui" aria-hidden="true">🖥️</div>
+            <div>
+              <h3>Painel desktop (tkinter)</h3>
+            </div>
+          </div>
+          <p>
+            Interface que dispara o sincronizador e testa endpoints da API local sem usar o terminal.
+          </p>
+          <p class="links">
+            <a href="https://github.com/Eric-Torrespjr/Portfolio-Py/tree/main/painel_gui">Código & README</a>
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Substitua o link abaixo pelo seu WhatsApp profissional (formato internacional, sem símbolos).</p>
+      <p class="wa">
+        <img src="assets/icone-whatsapp.png" alt="" />
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </p>
+      <p style="margin-top:1rem;font-size:0.8rem;">Página estática — abra <code>index.html</code> no navegador ou publique com GitHub Pages.</p>
+    </div>
+  </footer>
+</body>
+</html>

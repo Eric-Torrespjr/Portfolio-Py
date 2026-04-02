@@ -1,5 +1,9 @@
 # Automações Python — portfólio (APIs & integração)
 
+## Portfólio visual (HTML)
+
+Página com foto, ícones e cards dos projetos: pasta [**`portfolios/`**](portfolios/) — abra [`portfolios/index.html`](portfolios/index.html) no navegador. Detalhes em [portfolios/README.md](portfolios/README.md).
+
 ## Comece por aqui (mais simples)
 
 | Pasta | Descrição resumida | Documentação |
