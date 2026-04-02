@@ -1,6 +1,8 @@
 # Portfólio visual (HTML estático)
 
-Esta pasta apresenta os projetos do repositório em uma **página única** (`index.html`) com o mesmo modelo visual:
+O `index.html` segue a **estrutura e o estilo** do portfólio de referência **Wescley Silva** (Tailwind: header fixo com blur, seção *Sobre* em duas colunas com foto redonda, grade de projetos com cards, modal de contato e rodapé). Conteúdo e links apontam para o repositório [Portfolio-Py](https://github.com/Eric-Torrespjr/Portfolio-Py).
+
+Esta pasta apresenta os projetos em uma **página única** com:
 
 - **Foto de perfil** no topo (`assets/perfil.png`)
 - **Seta para baixo** convidando a rolar até os projetos (`assets/icone-seta-baixo.png`)
@@ -22,5 +24,6 @@ No repositório GitHub: **Settings → Pages →** escolha branch `main` e pasta
 
 ## Ajustes recomendados
 
-1. No rodapé de `index.html`, substitua `https://wa.me/5511999999999` pelo seu número (DDI + DDD + número, sem `+` ou espaços).
-2. Atualize textos em primeira pessoa se quiser personalizar a bio.
+1. No modal de contato, substitua `mailto:seuemail@exemplo.com` e `https://wa.me/5511999999999` pelos seus dados.
+2. Personalize o nome em destaque e a bio em `index.html`, se quiser.
+3. Opcional: inclua link do LinkedIn no menu (como no HTML de referência), copiando o padrão dos ícones SVG.
